@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Form, useForm } from "react-hook-form";
+import { z } from "zod";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Textarea } from "@/components/ui/textarea"
-import { toast } from "@/hooks/use-toast"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -20,11 +20,13 @@ const formSchema = z.object({
   service: z.enum(["mortgage", "financial-advice", "smsf"], {
     required_error: "Please select a service.",
   }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
-})
+  message: z
+    .string()
+    .min(10, { message: "Message must be at least 10 characters." }),
+});
 
 export function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -35,27 +37,34 @@ export function ContactForm() {
       service: "mortgage",
       message: "",
     },
-  })
+  });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true)
+  function onSubmitted() {
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log(values)
-      setIsSubmitting(false)
-      form.reset()
-      toast({
-        title: "Form submitted",
-        description: "We'll get back to you as soon as possible.",
-      })
-    }, 1000)
+    setIsSubmitting(false);
+    form.reset();
+    toast({
+      title: "Form submitted",
+      description: "We'll get back to you as soon as possible.",
+    });
   }
 
   return (
     <Card className="border-0 shadow-sm">
       <CardContent className="p-6">
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <Form
+          control={form.control}
+          action="https://formsubmit.co/thivya@runefinance.com.au"
+          method="post" // default to post
+          onSuccess={onSubmitted} // valid response
+          onError={({ response }) => {
+            console.log(response);
+          }}
+          // error response
+          validateStatus={(status) => status >= 200} // validate status code
+          className="space-y-6"
+        >
           <div className="space-y-2">
             <Label htmlFor="name" className="text-sm font-medium">
               Full Name
@@ -67,7 +76,9 @@ export function ContactForm() {
               {...form.register("name")}
             />
             {form.formState.errors.name && (
-              <p className="text-sm text-destructive">{form.formState.errors.name.message}</p>
+              <p className="text-sm text-destructive">
+                {form.formState.errors.name.message}
+              </p>
             )}
           </div>
           <div className="space-y-2">
@@ -82,7 +93,9 @@ export function ContactForm() {
               {...form.register("email")}
             />
             {form.formState.errors.email && (
-              <p className="text-sm text-destructive">{form.formState.errors.email.message}</p>
+              <p className="text-sm text-destructive">
+                {form.formState.errors.email.message}
+              </p>
             )}
           </div>
           <div className="space-y-2">
@@ -97,14 +110,24 @@ export function ContactForm() {
               {...form.register("phone")}
             />
             {form.formState.errors.phone && (
-              <p className="text-sm text-destructive">{form.formState.errors.phone.message}</p>
+              <p className="text-sm text-destructive">
+                {form.formState.errors.phone.message}
+              </p>
             )}
           </div>
           <div className="space-y-3">
             <Label className="text-sm font-medium">I'm interested in:</Label>
-            <RadioGroup defaultValue="mortgage" className="flex flex-col space-y-2" {...form.register("service")}>
+            <RadioGroup
+              defaultValue="mortgage"
+              className="flex flex-col space-y-2"
+              {...form.register("service")}
+            >
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="mortgage" id="mortgage" className="text-primary border-slate-200" />
+                <RadioGroupItem
+                  value="mortgage"
+                  id="mortgage"
+                  className="text-primary border-slate-200"
+                />
                 <Label htmlFor="mortgage" className="font-normal">
                   Mortgage Brokering
                 </Label>
@@ -120,14 +143,20 @@ export function ContactForm() {
                 </Label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="smsf" id="smsf" className="text-primary border-slate-200" />
+                <RadioGroupItem
+                  value="smsf"
+                  id="smsf"
+                  className="text-primary border-slate-200"
+                />
                 <Label htmlFor="smsf" className="font-normal">
                   Self-Managed Super Fund
                 </Label>
               </div>
             </RadioGroup>
             {form.formState.errors.service && (
-              <p className="text-sm text-destructive">{form.formState.errors.service.message}</p>
+              <p className="text-sm text-destructive">
+                {form.formState.errors.service.message}
+              </p>
             )}
           </div>
           <div className="space-y-2">
@@ -141,7 +170,9 @@ export function ContactForm() {
               {...form.register("message")}
             />
             {form.formState.errors.message && (
-              <p className="text-sm text-destructive">{form.formState.errors.message.message}</p>
+              <p className="text-sm text-destructive">
+                {form.formState.errors.message.message}
+              </p>
             )}
           </div>
           <Button
@@ -152,11 +183,11 @@ export function ContactForm() {
             {isSubmitting ? "Submitting..." : "Submit"}
           </Button>
           <p className="text-xs text-muted-foreground text-center mt-4">
-            By submitting this form, you agree to our Privacy Policy and Terms of Service.
+            By submitting this form, you agree to our Privacy Policy and Terms
+            of Service.
           </p>
-        </form>
+        </Form>
       </CardContent>
     </Card>
-  )
+  );
 }
-
