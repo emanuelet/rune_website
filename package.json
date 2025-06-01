@@ -9,6 +9,7 @@
     "deploy": "wrangler deploy",
     "dev": "next dev",
     "lint": "next lint",
+    "prebuild": "pnpm run build",
     "postbuild": "opennextjs-cloudflare build -s",
     "preview": "npm run build && wrangler dev",
     "start": "next start"
@@ -73,7 +74,8 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5",
     "wrangler": "4.18.0"
-  },  "cloudflare": {
+  },
+  "cloudflare": {
     "label": "Next.js Framework Starter",
     "products": [
       "Workers"
