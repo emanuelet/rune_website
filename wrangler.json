@@ -2,6 +2,7 @@
   "name": "rune-website",
   "main": ".open-next/worker.js",
   "compatibility_date": "2025-04-01",
+  "account_id": "7f8e74e1320d5a870918b91b8006cae6",
   "compatibility_flags": ["nodejs_compat"],
   "minify": true,
   "assets": {
