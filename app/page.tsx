@@ -296,8 +296,8 @@ export default function HomePage() {
                       <circle cx="12" cy="10" r="3" />
                     </svg>
                     <div>
-                      <h3 className="font-medium">Office Location</h3>
-                      <p className="text-muted-foreground">123 Financial Street, Brisbane QLD 4000</p>
+                      <h3 className="font-medium">Operating in</h3>
+                      <p className="text-muted-foreground">Brisbane, Australia</p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -317,7 +317,7 @@ export default function HomePage() {
                     </svg>
                     <div>
                       <h3 className="font-medium">Phone</h3>
-                      <p className="text-muted-foreground">(07) 1234 5678</p>
+                      <p className="text-muted-foreground">0411 472 237</p>
                     </div>
                   </div>
                   <div className="flex items-start">
