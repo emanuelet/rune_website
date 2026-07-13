@@ -1,0 +1,11 @@
+<svg width="440" height="120" viewBox="0 0 440 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rune Finance wordmark">
+  <g stroke="#1B4D3E" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M40 95 L40 35"></path>
+    <path d="M40 56 L62 36"></path>
+    <path d="M40 56 L18 36"></path>
+    <path d="M40 74 L58 58"></path>
+    <path d="M40 74 L22 58"></path>
+  </g>
+  <text x="92" y="64" font-family="Spectral, Georgia, serif" font-size="42" font-weight="600" fill="#1A1C19" letter-spacing="-0.5">Rune</text>
+  <text x="92" y="98" font-family="'Hanken Grotesk', sans-serif" font-size="17" font-weight="600" letter-spacing="6" fill="#246751">FINANCE</text>
+</svg>
