@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --pine-950: #0b201a;
+  --pine-900: #0e2a22;
+  --pine-800: #143a2e;
+  --pine-700: #1b4d3e;
+  --pine-600: #246751;
+  --pine-500: #2f7e63;
+  --pine-400: #4e9c82;
+  --pine-300: #84bba8;
+  --pine-200: #b9d8cd;
+  --pine-100: #e2efe9;
+  --pine-50: #f1f7f4;
+  --brass-600: #a6822e;
+  --brass-500: #c29b3b;
+  --brass-400: #d4b45f;
+  --brass-300: #e4cd8c;
+  --brass-100: #f8f1dc;
+  --ink-900: #1a1c19;
+  --ink-600: #555a52;
+  --stone-400: #8c9187;
+  --stone-300: #aeb2a8;
+  --stone-200: #d2d5cc;
+  --cream-100: #f5f3e9;
+  --cream-50: #fbfaf4;
+  --white: #fff;
+  --danger-500: #b23b2e;
+  --success-600: #246751;
+  --success-100: #e2efe9;
+
+  --color-bg: var(--cream-50);
+  --color-surface: var(--white);
+  --color-surface-sunken: var(--cream-100);
+  --color-surface-accent: var(--pine-50);
+  --text-primary: var(--ink-900);
+  --text-secondary: var(--ink-600);
+  --text-muted: var(--stone-400);
+  --text-on-dark: var(--cream-50);
+  --brand-primary: var(--pine-700);
+  --brand-primary-hover: var(--pine-800);
+  --brand-accent: var(--brass-500);
+  --border-subtle: var(--stone-200);
+  --border-strong: var(--stone-300);
+  --border-accent: var(--brass-400);
+  --ring-focus: color-mix(in srgb, var(--pine-500) 55%, transparent);
+
+  --font-display: 'Spectral', Georgia, 'Times New Roman', serif;
+  --font-text: 'Hanken Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --text-h2: 2.5rem;
+  --text-h3: 1.875rem;
+  --text-h4: 1.375rem;
+  --text-lead: 1.25rem;
+  --text-body: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+  --text-eyebrow: 0.8125rem;
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-relaxed: 1.65;
+  --tracking-tight: -0.02em;
+  --tracking-eyebrow: 0.16em;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3rem;
+  --space-9: 4rem;
+  --space-10: 5rem;
+  --space-11: 6rem;
+
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+  --container-max: 1200px;
+
+  --shadow-xs: 0 1px 2px rgb(20 40 32 / 0.06);
+  --shadow-sm: 0 1px 3px rgb(20 40 32 / 0.08), 0 1px 2px rgb(20 40 32 / 0.05);
+  --shadow-md: 0 4px 12px rgb(20 40 32 / 0.08), 0 2px 4px rgb(20 40 32 / 0.05);
+  --shadow-lg: 0 12px 28px rgb(20 40 32 / 0.1), 0 4px 10px rgb(20 40 32 / 0.06);
+  --shadow-focus: 0 0 0 3px var(--ring-focus);
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 140ms;
+  --duration-normal: 220ms;
+
+  font-family: var(--font-text);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--text-primary);
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: var(--font-text);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+#root {
+  min-height: 100svh;
+}
